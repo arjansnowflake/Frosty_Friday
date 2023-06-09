@@ -35,7 +35,7 @@ select * from challenge_3_result;
 //since I misread the assignment and assumed I only needed to create a table that lists filenames, and not necessarily had to insert the files themselves into a table,
 //I tried to query only directly from the files in the stage. Had to sift through snowflake docs and some solutions by others to get what I wanted.
 
-INSERT INTO challenge_3_result --copy into only accepts simple select statements
+INSERT INTO challenge_3_result --did not know copy into only accepts simple select statements
 (select METADATA$FILENAME FILENAME, count(*) NUMBER_OF_ROWS from @frosty_3
     where FILENAME like any (select '%' || $1 || '%' from @frosty_3/keywords.csv) --did not know of 'like any'; also did not know I needed a 'select' for concatenation in this context (plus, pipes for concat are great!)
     group by FILENAME
