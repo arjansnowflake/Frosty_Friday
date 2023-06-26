@@ -10,7 +10,8 @@ ALTER SESSION SET WEEK_OF_YEAR_POLICY = 1;
 
 --second attempt at the dimension table, after reading two solutions
 
-    --get number of rows to generate
+    --get number of rows to generate (date at time of challenge wat 2023-06-26)
+    --setting a variable using datediff does not work, so copy-pasting from query results here...
 select datediff(days, ' 2000-01-01', current_date) + 1;
 
     --create dimension table
